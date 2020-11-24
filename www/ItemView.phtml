@@ -1,0 +1,157 @@
+<div class="container container-item">
+    
+
+    <div class="item col-md-8 item-view">
+
+        <div class="item-title">
+            <h2 class="h2-item"><?= $item['titre'] ?></h2>
+        </div>
+
+        <div class="item-body">
+            <div class="item-photo">
+
+                <div id="demo" class="carousel slide" data-ride="carousel">
+
+                    <!-- Indicators -->
+                    <ul class="carousel-indicators">
+                        <li data-slide-to="0" class="active li-point"></li>
+                        <li data-slide-to="1" class="li-point"></li>
+                        <li data-slide-to="2" class="li-point"></li>
+                    </ul>
+
+                    <!-- The slideshow -->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="pics" src="../img/<?= $item['photo1'] ?>" alt="Los Angeles">
+                        </div>
+                    </div>
+
+                    <!-- Left and right controls -->
+                    <a class="carousel-control-prev" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
+
+                </div>
+            </div>
+            <div class="description">
+
+                <p>
+                    <?= $item['description'] ?>
+                </p>
+            </div>
+        </div>
+        <div class="item-footer">
+
+            <div class="row">
+                    <fieldset class="col-md-4">
+                        <legend>Localisation</legend>
+                        <ul class="list-details">
+                            <li><strong>Ville : </strong><?= $item['ville'] ?></li>
+                            <li><strong>Département : </strong><?= $item['departement'] ?></li>
+                            <li><strong>Région : </strong><?= $item['region'] ?></li>
+                        </ul>
+                    </fieldset>
+                
+                    <fieldset class="col-md-4">
+                        <legend>Détails</legend>
+                        <ul class="list-details">
+                            <li><strong>Nombre de pièces : </strong><?= $item['nbr_pieces'] ?></li>
+                            <li><strong>Surface intérieure : </strong><?= $item['surface_int'] ?>m2</li>
+                            <li><strong>Surface extérieure : </strong><?= $item['surface_ext'] ?>m2</li>
+                            <li><strong>Chauffage : </strong><?= $item['chauffage'] ?></li>
+                            <li><strong>Année de construction : </strong><?= $item['annee_const'] ?></li>
+                        </ul>
+                    </fieldset>
+                    
+                    <fieldset class="col-md-4">
+                        <legend>Plus</legend>
+                        <ul class="list-details">
+                            <li><strong>Nombre de salle de bains : </strong><?= $item['nbr_sdb'] ?></li>
+                            <li><strong>Balcon : </strong><?= $item['balcon'] ?></li>
+                            <li><strong>Terrasse : </strong><?= $item['terrasse'] ?></li>
+                            <li><strong>Garage : </strong><?= $item['garage'] ?></li>
+                            <li><strong>Cave : </strong><?= $item['garage'] ?></li>
+                        </ul>
+                    </fieldset>
+                    
+            </div>
+            <fieldset>
+                
+                    <?php if ($item['transac'] == 'Achat') : ?>
+                    <legend class="item_price"> Prix : <?= number_format($item['prix'], 0, ',', ' '); ?>€</legend>
+                    <?php else : ?>
+                    <legend class="item_price"> Loyer : <?= number_format($item['prix'], 0, ',', ' '); ?>€/mois</legend>
+                    <?php endif; ?>
+            </fieldset>
+
+            <div class="row row_item">
+                
+
+                <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin') : ?>
+
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <fieldset>
+                            <legend class="item_legend">Contactez nous</legend>
+                            <a href="/controllers/ContactController.php?id=<?=$id ?>"
+                            class="btn-contact btn btn-primary">Contact
+                            <span class="glyphicon glyphicon-envelope"></span></a>
+                        </fieldset>
+                    </div>
+
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <fieldset>
+                            <legend class="item_legend">Supprimer l'annonce</legend>
+                            <a href="/controllers/AdminController.php?deleteId=<?= $id ?>"
+                            class="btn-contact btn btn-danger">Supprimer <i class="fas fa-trash-alt"></i></a>
+                        </fieldset>
+                    </div>
+                
+                
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <fieldset>
+                            <legend class="item_legend">Modifier l'annonce</legend>
+                            <a href="/controllers/UpdateController.php?id=<?= $id ?>"
+                                class="btn-contact btn btn-warning">Modifier</a>
+                        </fieldset>
+                    </div>
+            
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <fieldset>
+                            <legend class="item_legend">Liste des annonces</legend>
+                            <a href="/controllers/AdminController.php"
+                                class="btn-contact btn btn-light">Retour</a>
+                        </fieldset>
+                    </div>
+                <?php else :?>
+
+                    <div class="contact_footer_div1 col-md-5 col-sm-5 col-xs-5">
+                        <h4>Contactez nous au sujet de ce bien en cliquant ici </h4>
+                    <a href="/controllers/ContactController.php?id=<?=$id ?>"
+                        class="btn-contact btn btn-primary">Contact
+                        <span class="glyphicon glyphicon-envelope"></span></a>
+                    </div>
+                    <h4 class="col-md-1 col-sm-1 col-xs-1">OU</h4>
+                    <div class="contact_footer_div2 col-md-5 col-sm-5 col-xs-5">
+                        <h4>Rendez-vous en agence</h4>
+                        <p>Agence Principale <br>
+                            6 Avenue du Colonel Fabien<br>
+                            92340 Argenton
+                        </p>
+                    </div>
+                <?php endif ;?>
+            </div>
+
+
+            
+        </div>
+
+
+    </div>
+
+
+</div>
+
+<script src="/js/ItemCarrousel.js"></script>

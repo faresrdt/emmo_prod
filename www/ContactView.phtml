@@ -1,0 +1,87 @@
+<?php if(isset($item)): ?>
+<div class="container-contact">
+  <div class="col-md-6">
+    
+   
+
+    <div class="my_form">
+        <form method="post" action="/library/SendMail.php">
+          <fieldset>
+            <legend class="item_contact_legend">Vous souhaitez nous contacter au sujet du bien : <?= $item['titre']?></legend>
+
+            <input type="text" name="ref" class="hide" value="<?= $item['id'] ?>">
+            <input type="text" name="titre" class="hide" value="<?= $item['titre'] ?>">
+
+            <div class="col-md-5 col-sm-5 col-xs-5">
+              <label for="item_contact_name">Nom</label>
+              <input type="text" name="nom" class="form-control input-form" id="item_contact_name" placeholder="Dupont">
+            </div>
+
+            <div class="col-md-5 offset-md-2 col-sm-5 offset-sm-2 col-xs-5 offset-xs-2">
+              <label for="item_contact_surname">Prénom</label>
+              <input type="text" name="prenom" class="form-control input-form" id="item_contact_surname" placeholder="Jean">
+            </div>
+
+            <div class="col-md-5 col-sm-5 col-xs-5">
+              <label for="item_contact_mail">Adresse e-mail</label>
+              <input type="text" name="mail" class="form-control input-form" id="item_contact_mail" placeholder="adresse@mail.fr">
+            </div>
+
+            <div class="col-md-5 offset-md-2 col-sm-5 offset-sm-2 col-xs-5 offset-xs-2">
+              <label for="item_contact_phone">Téléphone</label>
+              <input type="text" name="phone" class="form-control input-form" id="item_contact_phone" placeholder="06 05 04 03 02">
+            </div>
+
+            <textarea class="form-control area-form" name="message" cols="30" rows="10" placeholder="Votre message"></textarea>
+          </fieldset>
+          
+          <button type="submit"  class="btn-request btn btn-block btn-primary">Envoyer ma demande  <span class="glyphicon glyphicon-envelope"></span></button>    
+        </form> 
+            
+    </div>
+
+  </div>
+</div>  
+
+<?php else : ?>
+
+  <div class="container-contact">
+  <div class="col-md-6">
+
+    <div class="my_form">
+        <form method="post" action="/library/SendMail.php">
+        <fieldset>
+            <legend class="contact_legend">Vous souhaitez nous contacter</legend>
+
+            <div class="col-md-5 col-sm-5 col-xs-5">
+              <label for="contact_name">Nom</label>
+              <input type="text" name="nom" class="form-control input-form" id="contact_name" placeholder="Dupont">
+            </div>
+
+            <div class="col-md-5 offset-md-2 col-sm-5 offset-sm-2 col-xs-5 offset-xs-2">
+              <label for="contact_surname">Prénom</label>
+              <input type="text" name="prenom" class="form-control input-form" id="contact_surname" placeholder="Jean">
+            </div>
+
+            <div class="col-md-5 col-sm-5 col-xs-5">
+              <label for="contact_mail">Adresse e-mail</label>
+              <input type="text" name="mail" class="form-control input-form" id="contact_mail" placeholder="adresse@mail.fr">
+            </div>
+
+            <div class="col-md-5 offset-md-2 col-sm-5 offset-sm-2 col-xs-5 offset-xs-2">
+              <label for="contact_phone">Téléphone</label>
+              <input type="text" name="phone" class="form-control input-form" id="contact_phone" placeholder="06 05 04 03 02">
+            </div>
+
+            <textarea class="form-control area-form" name="message" cols="30" rows="10" placeholder="Votre message"></textarea>
+          </fieldset>
+          <button type="submit" class="btn-request btn btn-block btn-primary">Envoyer ma demande  <span class="glyphicon glyphicon-envelope"></span></button>    
+        </form> 
+            
+    </div>
+
+  </div>
+</div> 
+
+
+<?php endif; ?>

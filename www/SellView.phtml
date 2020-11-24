@@ -1,0 +1,187 @@
+<h1 class="h1-sell">Vous souhaitez vendre votre bien ?</h1>
+<h3 class="h3-sell">Remplissez le formulaire ci-dessous et nous vous contacterons pour l'estimation de votre bien</h3>
+
+
+<div class="container-sell">
+    <div class="my_form col-md-6">
+        <form action="/library/SendMail.php" method="post" class="form_sell">
+
+            <input name="sell" type="text" class="hide" value="true">
+
+            <fieldset class="information-contact" id="information-contact">
+            <legend>Informations personnelles</legend>
+                <div class="col-md-5 col-sm-5 col-xs-5">
+                    <label for="nom">Nom</label>
+                    <input name="nom" type="text" class="form-control input-form" id="nom" placeholder="Dupont">
+                </div>
+
+                <div class="col-md-5 offset-md-2 col-sm-5 offset-sm-2 col-xs-5 offset-xs-2">
+                    <label for="prenom">Prénom </label>
+                    <input name="prenom" type="text" class="form-control input-form" id="prenom" placeholder="Jean">
+                </div>
+                
+                <div class="col-md-5 col-sm-5 col-xs-5">
+                    <label for="mail">E-mail</label>
+                    <input name="mail" type="text" class="form-control input-form" id="mail" placeholder="adresse@mail.com">
+                </div>
+
+                <div class="col-md-5 offset-md-2 col-sm-5 offset-sm-2 col-xs-5 offset-xs-2">
+                    <label for="phone">Téléphone</label>
+                    <input name="phone" type="text" class="form-control input-form" id="phone" placeholder="06 05 04 03 02">
+                </div>
+            </fieldset>
+
+            <fieldset>
+            <legend>Le bien</legend>
+                <label for="sell-titre">Désignation</label>
+                <input name="sell-titre" type="text" id="sell-titre" class="form-control input-form" placeholder="Maison trois pièces" required> 
+            
+            
+            </fieldset>
+            
+                
+            
+            <fieldset>
+            <legend>Type</legend>
+                
+                    
+                <div class="col-md-5 col-sm-5 col-xs-5">
+                    <input type="radio" name="type" value="Appartement" id="appartement" required>
+                    <label for="appartement">Appartement</label>
+                </div>
+
+                <div class="col-md-5 offset-md-2 col-sm-5 offset-sm-2 col-xs-5 offset-xs-2">
+                    <input type="radio" name="type" value="Maison" id="maison" required>
+                    <label for="maison">Maison</label>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Localisation du bien</legend>
+
+                <div class="col-md-5 col-sm-5 col-xs-5">
+                    <label for="ville">Ville</label>
+                    <input name="ville" type="text" class="form-control input-form" id="ville" placeholder="Paris" required>  
+                </div>
+                <div class="col-md-5 offset-md-2 col-sm-5 offset-sm-2 col-xs-5 offset-xs-2">
+                    <label for="departement">Département</label>
+                    <select name="departement" class="custom-select input-select" id="departement" required>
+                        <option disabled selected value="">Cliquez pour choisir</option>
+                        <?php foreach ($departements as $i => $j) :?>
+                        <option value="<?= $j?>"><?= $j?> (<?= $i?>)</option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <div class="div-region">
+                    <label for="region">Région</label>
+                    <select name="region" class="custom-select input-select input-form" id="region" required>
+                        <option disabled selected value="">Cliquez pour choisir</option>
+                        <?php foreach ($region as $i => $j) :?>
+                        <option value="<?= $j ?>"><?= $j?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+
+            </fieldset>
+
+            <fieldset>
+                <legend>Caractéristique du bien</legend>
+
+                <div class="col-md-5 col-sm-5 col-xs-5">
+                    <label for="surface_int">Surface Intérieure en m2</label>
+                    <input name="surface_int" type="number" class="form-control input-form" id="surface_int" placeholder="30" min="9" max="500" required>
+                </div>
+
+                <div class="col-md-5 offset-md-2 col-sm-5 offset-sm-2 col-xs-5 offset-xs-2">
+                    <label for="surface_ext">Surface extérieure en m2</label>
+                    <input name="surface_ext" type="number" class="form-control input-form" id="surface_ext" min="0" max="10000" placeholder="100" required>
+                </div>
+
+                <div class="col-md-5 col-sm-5 col-xs-5">
+                    <label for="nbr_pieces">Nombre de pièces</label>
+                    <input name="nbr_pieces" type="number" class="form-control input-form" id="nbr_pieces" placeholder="3" min="1" max="15" required>
+                </div>
+
+                <div class="col-md-5 offset-md-2 col-sm-5 offset-sm-2 col-xs-5 offset-xs-2">
+                    <label for="nbr_sdb">Nombre de salles de bain</label>
+                    <input name="nbr_sdb" type="number" class="form-control input-form" id="nbr_sdb" placeholder="1" min="1" max="10" required>
+                </div>
+
+                <div class="col-md-5 col-sm-5 col-xs-5">
+                    <h4>Balcon</h4>
+                    <div>
+                        <input type="radio" name="balcon" value="oui" id="balcon_oui" required>
+                        <label for="balcon_oui">Oui</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="balcon" value="non" id="balcon_non" required>
+                        <label for="balcon_non">Non</label>
+                    </div>
+                </div>
+
+                <div class="col-md-5 offset-md-2 col-sm-5 offset-sm-2 col-xs-5 offset-xs-2">
+                    <h4>Terrasse</h4>
+                    <div>
+                        <input type="radio" name="terrasse" value="oui" id="terrasse_oui" required>
+                        <label for="terrasse_oui">Oui</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="terrasse" value="non" id="terrasse_non" required>
+                        <label for="terrasse_non">Non</label>
+                    </div>
+                </div>
+
+                <div class="col-md-5 col-sm-5 col-xs-5">
+                    <h4>Garage</h4>
+                    <div>
+                        <input type="radio" name="garage" value="oui" id="garage_oui" required>
+                        <label for="garage_oui">Oui</label>    
+                    </div>
+
+                    <div>
+                        <input type="radio" name="garage" value="non" id="garage_non" required>
+                        <label for="garage_non">Non</label>
+                    </div>
+                </div>
+
+                <div class="col-md-5 offset-md-2 col-sm-5 offset-sm-2 col-xs-5 offset-xs-2">
+                    <h4>Cave</h4>
+                    <div>
+                        <input type="radio" name="cave" value="oui" id="cave_oui" required>
+                        <label for="cave_oui">Oui</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="cave" value="non" id="cave_non" required>
+                        <label for="cave_non">Non</label>
+                    </div>
+                </div>
+
+                <div class="col-md-5 col-sm-5 col-xs-5">
+                    <h4>Chauffage</h4>
+                    <div>
+                        <input type="radio" name="chauffage" value="gaz" id="gaz" required>
+                        <label for="gaz">Gaz</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="chauffage" value="électricité" id="electricite" required>
+                        <label for="electricite">Électricité</label>
+                    </div>
+                </div>
+                <div class="col-md-5 offset-md-2 col-sm-5 offset-sm-2 col-xs-5 offset-xs-2">
+                    <h4>Année de construction</h4>
+                    <input name="annee_const" type="number" class="form-control input-form" placeholder="1980" id="annee_const" min="1700" max="2020">
+                </div>
+
+            </fieldset>
+
+            <textarea class="form-control area-form" name="description" id="description" cols="30" rows="10"
+                placeholder="Description du bien" required></textarea>
+            <button class="btn-request btn btn-block btn-primary" type="submit"> Envoyer ma demande</button>
+        </form>
+
+    </div>
+</div>

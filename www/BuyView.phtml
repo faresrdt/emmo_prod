@@ -1,0 +1,76 @@
+<div class="col-md-3 col-sm-10 col-xs-4 col-filters">
+    <div class="filterGroup">
+        <div>
+            
+                <div class="alert alert-danger hide" role="alert">
+                    
+                </div>
+
+                <label for="input-price_min">Prix min</label>
+                <select name="input-price_min" class="select_price_min custom-select" id="input-price_min">
+                    <option value="50000">50 000</option>
+                    <option value="100000">100 000</option>
+                    <option value="150000">150 000</option>
+                    <option value="200000">200 000</option>
+                    <option value="250000">250 000</option>
+                    <option value="300000">300 000</option>
+                    <option value="400000">400 000</option>
+                    <option value="500000">500 000</option>
+                    <option value="600000">600 000</option>
+                    <option value="700000">700 000</option>
+                    <option value="800000">800 000</option>
+                    <option value="900000">900 000</option>
+                    <option value="1000000">1 000 000</option>
+                    <option value="10000000">+ de 1 000 000</option>
+                </select>
+                <label for="input-price_max">Prix max</label>
+                <select name="input-price_max" class="select_price_max custom-select" id="input-price_max">
+                    <option value="50000">50 000</option>
+                    <option value="100000">100 000</option>
+                    <option value="150000">150 000</option>
+                    <option value="200000">200 000</option>
+                    <option value="250000">250 000</option>
+                    <option value="300000">300 000</option>
+                    <option value="400000">400 000</option>
+                    <option value="500000">500 000</option>
+                    <option value="600000">600 000</option>
+                    <option value="700000">700 000</option>
+                    <option value="800000">800 000</option>
+                    <option value="900000">900 000</option>
+                    <option value="1000000">1 000 000</option>
+                    <option selected="selected" value="10000000">+ de 1 000 000</option>
+                </select>
+                <button type="submit" class="buyFilter btn btn-light">Appliquer</button>
+              
+        </div>
+        <fieldset>
+        <legend class="filter_legend">Type de biens</legend>
+            <input type="checkbox" name="appartement" class="input-type-buy input-buy appartement" id="appartement">
+            <label for="appartement">Appartement</label>
+            <br>
+            <input type="checkbox" name="maison" class="input-type-buy input-buy maison" id="maison">
+            <label for="maison">Maison</label>
+        </fieldset>
+        <fieldset>
+        <legend class="filter_legend">Ville</legend>
+        <?php foreach ($citys as $key => $value) :?>
+                <input type="checkbox" name="<?= $value ?>" class="input-city-buy input-buy" id="<?= $value  ?>">
+                <label for="<?= $value  ?>"><?= $value  ?></label><br>
+            <?php endforeach; ?> 
+            
+        </fieldset>
+
+    </div>
+    
+
+</div>
+
+<div class="result col-md-9 col-sm-9 col-xs-8">
+    
+      <div>
+                <p class="big-text">
+                <i class="fas fa-long-arrow-alt-left"></i>
+                <span>Trouvez votre bonheur en sélectionnant un ou plusieurs filtres dans cette colone.</span>
+      </div>
+
+</div>

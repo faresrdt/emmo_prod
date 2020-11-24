@@ -1,0 +1,85 @@
+<?php if($mail) : ?>
+    <div role="alert" class="mail-send alert alert-success">
+       Votre demande a bien été envoyée, nous vous contacterons très prochainement.
+    </div>
+<?php endif; ?>
+
+
+
+<h2 class="h2-home">NOUVEAUTÉS EN LOCATION</h2>
+<div class="row container row-news">
+        <?php for ($i=0 ; $i<count($newInRent) ; $i++) : ?> 
+            <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+                <div class="card">
+                    <img alt="photo-<?= $newInRent[$i]['titre'] ?>" class="card-img-top" src="img/<?= $newInRent[$i]['photo1']?>">
+                    <div class="card-block">
+                        <h4 class="card-title"><?= $newInRent[$i]['titre']?></h4>
+                        
+                        <div class="card-text">
+                            <?= substr($newInRent[$i]['description'], 0, 120)?>...
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="col-md-6 col-xs-6"><?= $newInRent[$i]['prix']?>€/mois </span>
+                            <a class="col-md-6 col-xs-6 btn btn-primary" href= "controllers/ItemController.php?id=<?= $newInRent[$i]['id']?>">
+                                Voir Plus
+                            </a>
+                    </div>
+                </div>
+            </div>
+        <?php endfor; ?> 
+</div>
+
+<h2 class="h2-home">NOUVEAUTÉS EN VENTES</h2>
+<div class="row container row-news">
+        <?php for ($i=0 ; $i<count($newInSell) ; $i++) : ?> 
+            <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+                <div class="card">
+                    <img alt="photo-<?= $newInSell[$i]['titre'] ?>" class="card-img-top" src="img/<?= $newInSell[$i]['photo1']?>">
+                    <div class="card-block">
+                        <h4 class="card-title"><?= $newInSell[$i]['titre']?></h4>
+                        
+                        <div class="card-text">
+                            <?= substr($newInSell[$i]['description'], 0, 120)?>...
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="col-md-6 col-xs-6"><?= number_format($newInSell[$i]['prix'], 0, ',', ' ') ?>€ </span>
+                            <a class="col-md-6 col-xs-6 btn btn-primary" href= "controllers/ItemController.php?id=<?= $newInSell[$i]['id']?>">
+                                Voir Plus
+                            </a>
+                    </div>
+                </div>
+            </div>
+        <?php endfor; ?>    
+</div>
+
+
+<div class="row annonce">
+    <div class="container annonce-contain">
+
+        
+        <h1 class="col-md-12">Vendez votre bien en 90 jours</h1>
+        <ul class="col-md-12">
+            <li><span><i class="far fa-check-circle"></i></span> Un accompagnement personnalisé</li>
+            <li><span><i class="far fa-check-circle"></i></span> Une communication puissante</li>
+            <li><span><i class="far fa-check-circle"></i></span> Des services innovants</li>
+        </ul>
+        <a href="/controllers/ContactController.php" class="btn btn-light annonce-btn"><i class="far fa-envelope"></i> Contactez-nous</a>
+    </div>
+</div>
+
+
+<div class="row annonce2">
+    <div class="container annonce-contain">
+
+        
+        <h1 class="col-md-12">Ouvrez une agence E-mmobilier</h1>
+        <ul class="col-md-12">
+            <li><span><i class="far fa-check-circle"></i></span> Ouvrez votre propre agence en 3 mois</li>
+            <li><span><i class="far fa-check-circle"></i></span> Un accompagnement d’un an pour vous lancer</li>
+            <li><span><i class="far fa-check-circle"></i></span> Profitez de la notoriété Laforêt</li>
+        </ul>
+        <a href="/controllers/ContactController.php" class="btn btn-light annonce-btn"><i class="far fa-envelope"></i> Contactez-nous</a>
+    </div>
+</div>

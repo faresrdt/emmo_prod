@@ -1,0 +1,238 @@
+<div class="row row-title">
+  <h2 class="h2-home h2-admin">Annonces</h2>
+</div>
+
+
+<?php if(isset($flashMessage)) : ?>
+    <div role="alert" class="mail-send alert alert-success">
+       <?= $flashMessage ?>
+    </div>
+    <?php unset($flashMessage); ?>
+<?php endif; ?>
+
+<div class="row">
+
+  <div class="col-md-2 col-xs-4">
+    <fieldset>
+      <legend class="admin_filter_legend">Type</legend>
+      
+      <input type="checkbox" name="appartement" class="AdminTypeFilter" id="admin_appartement" value="appartement">
+      <label for="admin_appartement">Appartement</label><br>
+
+      <input type="checkbox" name="maison" class="AdminTypeFilter" id="admin_maison" value="maison">
+      <label for="admin_maison">Maison</label>
+
+    </fieldset>  
+  </div>
+
+  <div class="col-md-2 col-xs-4">
+    <fieldset>
+      <legend class="admin_filter_legend">Transaction</legend>
+
+      <input type="checkbox" name="achat" class="transaction" id="admin_achat" value="achat">
+      <label for="admin_achat">Achat</label><br>
+
+      <input type="checkbox" name="location" class="transaction" id="admin_location" value="location">
+      <label for="admin_location">Location</label>
+
+    </fieldset>
+  </div>
+
+  <div class="col-md-2 col-xs-4">
+    <fieldset>
+      <legend class="admin_filter_legend">Villes</legend>
+
+            <?php foreach ($allCitys as $key => $value) :?>
+                <input type="checkbox" name="<?= $value ?>" class="adminInputCity" id="<?= $value  ?>">
+                <label for="<?= $value  ?>"><?= $value  ?></label><br>
+            <?php endforeach; ?> 
+            
+
+    </fieldset>   
+  </div>
+
+  <div class="col-md-2">
+      <fieldset>
+        <legend class="admin_filter_legend">Départements</legend>
+
+        <select name="departement" class="custom-select input-select admin_select_depart" id="departement">
+          <option selected value="all">Tout</option>
+          <?php foreach ($departements as $i => $j) :?>
+            <option value="<?= $i?>"><?= $j?> (<?= $i?>)</option>
+          <?php endforeach; ?>
+        </select>
+
+      </fieldset>
+  </div>
+
+  <div class="col-md-2">
+    <fieldset>
+      <legend class="admin_filter_legend">Région</legend>
+
+      <select name="region" class="custom-select input-select input-form admin_select_region" id="region">
+        <option selected value="all">Toutes</option>
+        <?php foreach ($region as $i => $j) :?>
+          <option value="<?= $i?>"><?= $j?> (<?= $i?>)</option>
+        <?php endforeach; ?>
+      </select>
+
+
+    </fieldset>
+    <div class="inputs">
+      
+    </div>
+  </div>
+
+  <div class="col-md-2">
+
+          
+
+    <fieldset>
+      <legend class="admin_filter_legend">Prix</legend>
+
+      <p class="pPrice">
+          Pour afficher le filtre de prix, cliquez sur une transaction dans la colonne "Transaction".
+      </p>
+
+      <div class="admin_select_buy hide">
+
+        <label for="admin_price_min">Prix minimum</label>
+        <select name="input-price_min" class="admin_select_price_min custom-select input-select" id="admin_price_min">
+          <option value="0">0</option>
+          <option value="500">500</option>
+          <option value="1000">1 000</option>
+          <option value="1500">1 500</option>
+          <option value="2000">2 000</option>
+          <option value="2500">2 500</option>
+          <option value="150000">150 000</option>
+          <option value="200000">200 000</option>
+          <option value="250000">250 000</option>
+          <option value="300000">300 000</option>
+          <option value="400000">400 000</option>
+          <option value="500000">500 000</option>
+          <option value="600000">600 000</option>
+          <option value="700000">700 000</option>
+          <option value="800000">800 000</option>
+          <option value="900000">900 000</option>
+          <option value="1000000">1 000 000</option>
+          <option value="10000000">+ de 1 000 000</option>
+        </select><br>
+
+        <label for="admin_price_max">Prix maximum</label>
+        <select name="input-price_max" class="admin_select_price_max custom-select input-select" id="admin_price_max">
+          <option value="50000">50 000</option>
+          <option value="100000">100 000</option>
+          <option value="150000">150 000</option>
+          <option value="200000">200 000</option>
+          <option value="250000">250 000</option>
+          <option value="300000">300 000</option>
+          <option value="400000">400 000</option>
+          <option value="500000">500 000</option>
+          <option value="600000">600 000</option>
+          <option value="700000">700 000</option>
+          <option value="800000">800 000</option>
+          <option value="900000">900 000</option>
+          <option value="1000000">1 000 000</option>
+          <option selected="selected" value="10000000">+ de 1 000 000</option>
+        </select>
+      </div>
+
+      <div class="admin_select_rent hide">
+
+      <label for="price_min">Prix min</label>
+                <select name="input-price_min" class="custom-select admin_rent_select_price_min" id="price_min"> 
+                    <option value="200">200€</option>
+                    <option value="300">300€</option>
+                    <option value="400">400€</option>
+                    <option value="500">500€</option>
+                    <option value="600">600€</option>
+                    <option value="700">700€</option>
+                    <option value="800">800€</option>
+                    <option value="900">900€</option>
+                    <option value="1000">1 000€</option>
+                    <option value="1250">1 250€</option>
+                    <option value="1500">1 500€</option>
+                    <option value="1750">1 750€</option>
+                    <option value="2000">2 000€</option>
+                    <option value="200000">+ de 2 000€</option>
+                </select>
+                <label for="price_max">Prix max</label>
+                <select name="input-price_min" class="custom-select admin_rent_select_price_max" id="price_max">
+                    <option value="200">200€</option>
+                    <option value="300">300€</option>
+                    <option value="400">400€</option>
+                    <option value="500">500€</option>
+                    <option value="600">600€</option>
+                    <option value="700">700€</option>
+                    <option value="800">800€</option>
+                    <option value="900">900€</option>
+                    <option value="1000">1 000€</option>
+                    <option value="1250">1 250€</option>
+                    <option value="1500">1 500€</option>
+                    <option value="1750">1 750€</option>
+                    <option value="2000">2 000€</option>
+                    <option selected="selected" value="200000">+ de 2 000€</option>
+                </select>
+      </div>
+
+    </fieldset>
+  </div>
+
+  <button type="submit" class="adminFilter btn btn-light">Appliquer</button>
+
+
+</div>
+
+
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th class="col_titre" scope="col">Titre</th>
+      <th class="col_type" scope="col">Type</th>
+      <th class="col_transac" scope="col">Transaction</th>
+      <th class="col_ville" scope="col">Ville</th>
+      <th class="col_depart" scope="col">Département</th>
+      <th class="col_region" scope="col">Région</th>
+      <th class="col_prix" scope="col">Prix</th>
+      <th class="col_lien" scope="col">Lien</th>
+    </tr>
+  </thead>
+  <tbody class="adminResult">
+    <?php for ($i=0 ; $i<count($biens) ; $i++) : ?>
+
+    <?php foreach($departements as $key => $dep) :?>
+    <?php if((int)$key === (int)$biens[$i]['departement'])
+        $biens[$i]['departement'] = $dep;?>
+    <?php endforeach; ?>
+
+    <?php foreach($region as $key => $reg) :?>
+    <?php if((int)$key === (int)$biens[$i]['region'])
+        $biens[$i]['region'] = $reg;?>
+    <?php endforeach; ?>
+
+    <tr>
+      <th scope="row"><?= $i+1 ?></th>
+      <td class="col_titre"><?= $biens[$i]['titre']?></td>
+      <td class="col_type"><?= $biens[$i]['type']?></td>
+      <td class="col_transac"><?= $biens[$i]['transac']?></td>
+      <td class="col_ville"><?= $biens[$i]['ville']?></td>
+      <td class="col_depart"><?= $biens[$i]['departement']?></td>
+      <td class="col_region"><?= $biens[$i]['region']?></td>
+      <?php if($biens[$i]['transac'] === "Achat") : ?>
+      <td class="col_prix"><?= $biens[$i]['prix']?>€</td>
+      <?php elseif ($biens[$i]['transac'] === "Location") : ?>
+      <td class="col_prix"><?= $biens[$i]['prix']?>€/mois</td>
+      <?php  endif ; ?>
+      <td class="col_lien"><a href="/controllers/ItemController.php?id=<?= $biens[$i]['id']?>" class="btn btn-primary btn_voir_admin">
+          Voir
+        </a></td>
+    </tr>
+
+    <?php endfor; ?>
+  </tbody>
+</table>
+
+<script src="/js/AdminFilter.js"></script>

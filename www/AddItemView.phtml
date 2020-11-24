@@ -1,0 +1,183 @@
+<?php if(isset($flashMessage)) : ?>
+    <div role="alert" class="mail-send alert alert-success">
+       <?= $flashMessage ?>
+    </div>
+    <?php unset($flashMessage); ?>
+<?php endif; ?>
+
+<h1 class="h1-sell">Ajouter une annonce</h1>
+
+<div class="container-add">
+    <div class="my_form col-md-6">
+        <form enctype="multipart/form-data" action="/controllers/AddItemController.php" method="post">
+
+            <fieldset>
+                <legend>Le bien</legend>
+                <div>
+                    <label for="admin_titre">Titre</label>
+                    <input name="titre" type="text" class="form-control input-form" id="admin_titre" placeholder="Titre de l'annonce" required> 
+                </div>
+
+                <div class="col-md-5 col-sm-5 col-xs-5">
+                    <div class="first_radio">
+                    <input type="radio" name="type" value="Appartement" id="appartement" required>
+                    <label for="appartement">Appartement</label>
+                    </div>
+                    <div class="second_radio">
+                    <input type="radio" name="type" value="Maison" id="maison" required>
+                    <label for="maison">Maison</label>
+                    </div>                    
+                </div>
+
+                <div class="col-md-5 offset-md-2 col-sm-5 offset-sm-2 col-xs-5 offset-xs-2">
+                        <input type="radio" name="transac" value="Achat" id="achat" required>
+                        <label for="achat">Achat</label><br>
+                        
+                        <input type="radio" name="transac" value="Location" id="location" required>
+                        <label for="location">Location</label>
+                </div>
+
+            </fieldset>
+            
+
+            <fieldset>
+                <legend>Localisation</legend>
+
+                <div class="col-md-5 col-sm-5 col-xs-5 div-loc">
+                    <label for="ville">Ville</label>
+                    <input name="ville" type="text" class="form-control input-form" id="ville" placeholder="Paris" required> 
+                </div>
+
+                <div class="col-md-5 offset-md-2 col-sm-5 offset-sm-2 col-xs-5 offset-xs-2 div-loc">
+                    <label for="add_item_depart">Département</label>
+                    <select name="departement" class="custom-select input-select" id="add_item_depart" required>
+                        <option disabled selected value="">Departement</option>
+                        <?php foreach ($departements as $i => $j) :?>
+                        <option value="<?= $i?>"><?= $j?> (<?= $i?>)</option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+
+                <div class="div_region">
+                    <label for="add_item_region">Région</label>
+                    <select name="region" class="custom-select input-select input-form" id="add_item_region" required>
+                        <option disabled selected value="" >Région</option>
+                        <?php foreach ($region as $i => $j) :?>
+                        <option value="<?= $i ?>"><?= $j?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+
+            </fieldset>
+            
+            <fieldset>
+                <legend>Caractéristiques du bien</legend>
+
+                <div class="admin_surface_int col-md-5 col-sm-5 col-xs-5">
+                    <label for="admin_surface_int">Surface intérieure</label>
+                    <input name="surface_int" type="number" class="form-control input-form" placeholder="90" id="admin_surface_int" min="9" max="500" required>
+                </div>
+
+                <div class="admin_surface_ext col-md-5 offset-md-2 col-sm-5 offset-sm-2 col-xs-5 offset-xs-2">
+                    <label for="admin_surface_ext">Surface extérieure</label>
+                    <input name="surface_ext" type="number" class="form-control input-form" id="admin_surface_ext" placeholder="600" min="0" max="10000" required>
+                </div>
+                
+                <div class="admin_nbr_pieces col-md-5 col-sm-5 col-xs-5">
+                    <label for="admin_nbr_pieces">Nombre de pièces</label>
+                    <input name="nbr_pieces" type="number" class="form-control input-form" id="admin_nbr_pieces" placeholder="3" min="1" max="15" required>
+                </div>
+
+                <div class="admin_nbr_sdb col-md-5 offset-md-2 col-sm-5 offset-sm-2 col-xs-5 offset-xs-2">
+                    <label for="admin_nbr_sdb">Nombre de salle de bains</label>
+                    <input name="nbr_sdb" type="number" class="form-control input-form" id="admin_nbr_sdb" placeholder="1" min="1" max="10" required>
+                </div>
+
+                <div class="balcon div-radio col-md-5 col-sm-5 col-xs-5">
+                    <h4>Balcon</h4>
+                    
+                        <input type="radio" name="balcon" value="oui" id="admin_balcon_oui" required>
+                        <label for="admin_balcon_oui">Oui</label><br>
+                    
+                        <input type="radio" name="balcon" value="non" id="admin_balcon_non" required>
+                        <label for="admin_balcon_non">Non</label>
+                    
+                </div>
+
+                <div class="terrasse div-radio col-md-5 offset-md-2 col-sm-5 offset-sm-2 col-xs-5 offset-xs-2">
+                    <h4>Terrasse</h4>
+                    <input type="radio" name="terrasse" value="oui" id="admin_terrasse_oui" required>
+                    <label for="admin_terrasse_oui">Oui</label><br>
+
+                    <input type="radio" name="terrasse" value="non" id="admin_terrasse_non" required>
+                    <label for="admin_terrasse_non">Non</label><br>
+                </div>
+
+                <div class="garage div-radio col-md-5 col-sm-5 col-xs-5">
+                    <h4>Garage</h4>
+                    <input type="radio" name="garage" value="oui" id="admin_garage_oui" required>
+                    <label for="admin_garage_oui">Oui</label><br>
+                    
+                    <input type="radio" name="garage" value="non" id="admin_garage_non" required>
+                    <label for="admin_garage_non">Non</label>
+                </div>
+
+                <div class="cave div-radio col-md-5 offset-md-2 col-sm-5 offset-sm-2 col-xs-5 offset-xs-2">
+                    <h4>Cave</h4>
+                    <input type="radio" name="cave" value="oui" id="admin_cave_oui" required>
+                    <label for="admin_cave_oui">Oui</label><br>
+                   
+                    <input type="radio" name="cave" value="non" id="admin_cave_non" required>
+                    <label for="admin_cave_non">Non</label>  
+                </div>
+
+                <div class="chauffage div-radio col-md-5 col-sm-5 col-xs-5">
+                    <h4>Chauffage</h4>
+                    <input type="radio" name="chauffage" value="gaz" id="admin_gaz" required>
+                    <label for="admin_gaz">Gaz</label><br>
+                    
+                    <input type="radio" name="chauffage" value="électricité" id="admin_electricite" required>
+                    <label for="admin_electricite">Électricité</label>
+                </div>
+
+                <div class="annee_const div-radio col-md-5 offset-md-2">
+                    <label for="admin_annee_const">Année de construction</label>
+                    <input name="annee_const" type="number" class="form-control input-form" id="admin_annee_const" placeholder="1980" min="1700" max="2020">
+                </div>
+
+            </fieldset>
+
+            <fieldset>
+            <legend>Photos</legend>
+
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input"  name="photo1" id="admin_photo1" required>
+                    <label class="custom-file-label" for="admin_photo1">Photo 1</label>
+                </div>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input"  name="photo2" id="admin_photo2" required>
+                    <label class="custom-file-label" for="admin_photo2">Photo 2</label>
+                </div>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input"  name="photo3" id="admin_photo3" required>
+                    <label class="custom-file-label" for="admin_photo3">Photo 3</label>
+                </div>
+            </fieldset>
+            
+            <fieldset class="prix">
+                <legend>Prix du bien ou montant du loyer</legend>
+                <input name="prix" type="number" class="form-control input-form" id="admin_price" placeholder="100000" min="0" max="10000000" required>
+            </fieldset>
+            
+            <fieldset>
+                <legend>Description du bien</legend>
+                <textarea class="form-control area-form" name="description"  cols="30" rows="10" required></textarea>
+            </fieldset>
+
+            <button class="btn-request btn btn-block btn-primary" type="submit"> Ajouter l'annonce</button>
+        </form>
+
+    </div>
+</div>
+
+<script src="/js/AdminAddItem.js"></script>

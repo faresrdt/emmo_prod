@@ -1,0 +1,78 @@
+<div class="col-md-3 col-sm-10 col-xs-4 col-filters">
+    <div class="filterGroup">
+        <div>
+            
+                <div class="alert alert-danger hide" role="alert">
+                    
+                </div>
+
+                <label for="price_min">Loyer min</label>
+                <select name="input-price_min" class="custom-select select_price_min" id="price_min"> 
+                    <option value="200">200€</option>
+                    <option value="300">300€</option>
+                    <option value="400">400€</option>
+                    <option value="500">500€</option>
+                    <option value="600">600€</option>
+                    <option value="700">700€</option>
+                    <option value="800">800€</option>
+                    <option value="900">900€</option>
+                    <option value="1000">1 000€</option>
+                    <option value="1250">1 250€</option>
+                    <option value="1500">1 500€</option>
+                    <option value="1750">1 750€</option>
+                    <option value="2000">2 000€</option>
+                    <option value="200000">+ de 2 000€</option>
+                </select>
+                <label for="price_max">Loyer max</label>
+                <select name="input-price_min" class="custom-select select_price_max" id="price_max">
+                    <option value="200">200€</option>
+                    <option value="300">300€</option>
+                    <option value="400">400€</option>
+                    <option value="500">500€</option>
+                    <option value="600">600€</option>
+                    <option value="700">700€</option>
+                    <option value="800">800€</option>
+                    <option value="900">900€</option>
+                    <option value="1000">1 000€</option>
+                    <option value="1250">1 250€</option>
+                    <option value="1500">1 500€</option>
+                    <option value="1750">1 750€</option>
+                    <option value="2000">2 000€</option>
+                    <option selected="selected" value="200000">+ de 2 000€</option>
+                </select>
+                <button type="submit" class="RentFilter btn btn-light">Appliquer</button>
+           
+        </div>
+        <hr class="line"/>
+        <fieldset id="type">
+        <legend class="filter_legend">Type de biens</legend>
+            <input type="checkbox" name="appartement" class="input-type-rent input-rent appartement" id="appartement">
+            <label for="appartement">Appartement</label>
+            <br>
+            <input type="checkbox" name="maison" class="input-type-rent input-rent maison" id="maison">
+            <label for="maison">Maison</label>
+        </fieldset>
+        <hr class="line"/>
+        <fieldset id="city">
+        <legend class="filter_legend">Ville</legend>
+        <?php foreach ($citys as $key => $value) :?>
+                <input type="checkbox" name="<?= $value ?>" class="input-city-buy input-buy" id="<?= $value ?>">
+                <label for="<?= $value ?>"> <?= $value  ?></label><br>
+            <?php endforeach; ?> 
+            
+        </fieldset>
+
+    </div>
+    
+
+</div>
+
+<div class="result col-md-9 col-sm-9 col-xs-8">
+    
+      <div>
+                <p class="big-text">
+                <i class="fas fa-long-arrow-alt-left"></i>
+                <span>Trouvez votre bonheur en sélectionnant un ou plusieurs filtres dans cette colone.</span>
+      </div>
+
+</div>

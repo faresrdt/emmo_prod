@@ -1,0 +1,488 @@
+
+
+
+/* FONT FACE */
+
+@font-face {
+	font-family: "Montserrat";
+	src: url('Montserrat/Montserrat-Regular.ttf');
+}
+@font-face {
+	font-family: "Montserrat";
+	font-style: italic;
+	src: url('Montserrat/Montserrat-Italic.ttf');
+}
+@font-face {
+	font-family: "Montserrat";
+	font-weight: bold;
+	src: url('Montserrat/Montserrat-Bold.ttf');
+}
+
+
+/* STYLE GENERAL */
+
+body{
+    font-family: 'Montserrat' ;
+}
+
+.container-fluid
+{
+    -webkit-box-shadow: 1px 10px 25px -25px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 10px 25px -25px rgba(0,0,0,0.75);
+    box-shadow: 1px 10px 25px -25px rgba(0,0,0,0.75);
+    margin-bottom: 2em;
+}
+
+footer {
+    background-color: #FFFFFF;
+    padding-top: 2em;
+    color: #333;
+    font-weight: 500;
+    font-size: initial;
+    
+}
+
+
+.container-footer {
+    margin-bottom: 0!important;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 2em;
+}
+
+.col-footer
+{
+    margin-bottom: 0.5em;
+}
+
+
+.my_form
+{
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+
+/* PAGE HOME */
+
+.h2-home {
+    text-align: center;
+    font-weight: bold;
+
+}
+
+.row {
+    margin-bottom: 5em;
+}
+
+.annonce {
+    padding-top: 2em;
+    padding-bottom: 2em;
+    background-image: url('../img/living-room.jpg');
+    margin-bottom: 0;
+    height: 400px;
+
+}
+
+.annonce2 {
+    padding-top: 2em;
+    padding-bottom: 2em;
+    background-image: url('../img/living.jpg');
+    margin-bottom: 0;
+    height: 400px;
+    text-align: right;
+}
+
+.annonce-contain {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.annonce ul,
+.annonce2 ul {
+    list-style-type: none;
+}
+
+.annonce-btn {
+    margin-left: 15px;
+}
+
+.row-news {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* page buy */
+
+.result {
+    margin-bottom: 2em;
+}
+
+.big-text {
+    font-size: 1.5em;
+}
+
+.col-filters {
+    height: 800px;
+}
+
+.input-price_min,
+.input-price_max,
+.buyFilter,
+.RentFilter {
+    width: 100%;
+}
+
+.buyFilter,
+.RentFilter {
+    margin-top: 1em;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    -webkit-box-shadow: 0px 0px 5px -2px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 5px -2px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 5px -2px rgba(0,0,0,0.75);
+    
+}
+
+
+.buyFilter:hover,
+.RentFilter:hover {
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+}
+
+
+
+/* PAGE ITEM VIEW */
+
+
+.container-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.item-title {
+    text-align: center;
+}
+
+.item-photo>img {
+    width: 100%;
+}
+
+
+.description>p {
+    margin-top: 1em;
+}
+
+
+.list-details {
+    list-style-type: none;
+    padding-left: 0px;
+}
+
+
+.btn-contact {
+    -moz-box-shadow: 0px 0px 5px 0px #656565;
+    -webkit-box-shadow: 0px 0px 5px 0px #656565;
+    -o-box-shadow: 0px 0px 5px 0px #656565;
+    box-shadow: 0px 0px 5px 0px #656565;
+    filter: progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=NaN, Strength=5);
+    /* background-color: black; */
+}
+
+.item_price{
+    text-align: center;
+    font-size: 2em;
+}
+
+
+.item-view {
+    -webkit-box-shadow: 0px 0px 100px -60px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 100px -60px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 100px -60px rgba(0, 0, 0, 0.75);
+}
+
+.item_legend
+{
+    font-size : 14px;
+}
+
+.row_item
+{
+    text-align: center;
+}
+
+.contact_footer_div1
+{
+    margin-left: auto;
+}
+
+.contact_footer_div1
+{
+    margin-right: auto;
+}
+/* PAGE CONTACT VIEW */
+
+
+.container-contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.input-form {
+    margin-bottom: 1em;
+    border-radius: 40px;
+}
+
+.area-form {
+    border-radius: 10px;
+}
+
+.btn-request {
+    margin-top: 1em;
+}
+
+.h3-contact {
+    text-align: center;
+}
+
+.item_contact_legend, .contact_legend
+{
+    text-align: center;
+}
+
+/* PAGE SELL VIEW */
+
+.container-sell, .container-update, .container-add 
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.h1-sell {
+    text-align: center;
+}
+
+.h3-sell {
+    text-align: center;
+}
+
+.input-select {
+    width: 100% !important;
+    border-radius: 40px;
+}
+
+.div-radio {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.div-loc {
+    padding: 0;
+}
+
+.form_sell
+{
+    margin-bottom: 2em;
+    margin-top: 2em;
+}
+
+fieldset
+{
+    margin-top: 1em;
+}
+/* PAGE ADMIN VIEW */
+
+.row-title {
+    margin-left: 0px;
+    width: 100%;
+}
+
+.h2-admin {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.adminFilter {
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
+    -moz-box-shadow: 0px 0px 5px 0px #656565;
+    -webkit-box-shadow: 0px 0px 5px 0px #656565;
+    -o-box-shadow: 0px 0px 5px 0px #656565;
+    box-shadow: 0px 0px 5px 0px #656565;
+    filter: progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=NaN, Strength=5);
+}
+
+.adminInputDep
+{
+    height: 260px;
+    overflow: scroll;
+}
+
+
+/* PAGE ADD ITEM VIEW */
+
+.custom-file
+{
+    margin-bottom: 1em;
+}
+
+.h2-item
+{
+    font-weight: bold;
+}
+
+.pics
+{
+    width: 100%;
+}
+/* PAGE LOGIN ADM VIEW */
+
+.loginAdm-h2
+{
+    text-align: center;
+}
+
+.container-login
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login-row
+{
+    padding-top: 2em;
+    padding-bottom: 3em;
+}
+
+/* PAGE ADMIN USER VIEW */
+
+.admin_users_table
+{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.addUser_admin_form
+{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2em;
+
+}
+
+/* MEDIA QUERIES MOBILE */
+@media screen and (max-width: 767px)
+{
+    .container-fluid
+    {
+        font-size: 0.6em;
+    }
+    #nav-menu-container
+    {
+        font-size: 2.5em;
+        float: left;
+    }
+    
+    .btn-light
+    {
+        font-size: 1em;
+    }
+
+    .btn-contact {
+        font-size: 1em!important;
+    }
+
+    body > div > div.row.annonce > div > h1, body > div > div.row.annonce2 > div > h1
+    {
+        font-size: 3em;
+    }
+
+    .h1-sell
+    {
+        font-size: 3em;
+    }
+
+    .h3-sell
+    {
+        font-size: 1.5em;
+    }
+
+    body > div > div.row.annonce2 > div > h1, body > div > div.row.annonce > div > h1
+    {
+        font-size: 2em;
+    }
+    
+    .filter_legend
+    {
+        font-size: 1.5em;
+    }
+
+    .container-login
+    {
+        width: 80%;
+    }
+
+    .collapse {
+        display: block;
+        visibility: visible;
+    }
+
+    .navbar-nav 
+    {
+        
+        flex-direction: row;
+    }
+
+    .nav-item
+    {
+        margin : auto;
+    }
+
+    .navbar-brand 
+    {
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .row {
+        margin-bottom: 0;
+    }
+
+    .admin_filter_legend
+    {
+        font-size: 2em;
+    }
+
+    .col_depart, .col_region, .col_transac
+    {
+        display: none;
+    }
+    .table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td 
+    {
+        padding: 5px;
+    }
+
+    .btn_voir_admin {
+        padding: 2px 5px;
+        font-size: 8px;
+    }
+}

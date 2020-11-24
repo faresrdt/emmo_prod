@@ -1,0 +1,83 @@
+<h1 class="h1-sell">Utilisateurs</h1>
+
+<?php if(isset($flashMessage)) : ?>
+    <div role="alert" class="mail-send alert alert-success">
+       <?= $flashMessage ?>
+    </div>
+    <?php unset($flashMessage); ?>
+<?php endif; ?>
+
+<?php if(isset($errorMessage)) : ?>
+    <div role="alert" class="mail-send alert alert-danger">
+       <?= $errorMessage ?>
+    </div>
+    <?php unset($errorMessage); ?>
+<?php endif; ?>
+
+<div class="container">
+    <fieldset>
+        <legend>Liste des utilisateurs</legend>
+        <div class="alert alert-warning" role="alert">
+                <i class="fas fa-exclamation-triangle"></i> 
+                Tous les utilisateurs ont le rôle d'administrateur. Par conséquent, tous ont la possibilité d'ajouter ou supprimer un autre 
+                administrateur. Vous ne pouvez donc pas supprimer le premier administrateur.
+        </div>
+
+        <table class="table admin_users_table">
+        <thead>
+            <tr>
+            <th scope="col">Ref</th>
+            <!-- <th class="" scope="col">Id</th> -->
+            <th class="" scope="col">Pseudo</th>
+            <th class="" scope="col">Mail</th>
+            <th class="" scope="col">Modifier</th>
+            <th class="" scope="col">Supprimer</th>
+            </tr>
+        </thead>
+        <tbody class="">
+            <?php for ($i=0 ; $i<count($users) ; $i++) : ?>
+
+                <tr>
+                <th scope="row"><?= $i+1 ?></th>
+                <!-- <td class=""><?= $users[$i]['id']?></td> -->
+                <td class=""><?= $users[$i]['pseudo']?></td>
+                <td class=""><?= $users[$i]['mail']?></td>
+                <td class=""><a href="/controllers/UpdateController.php?updateUser=<?= $users[$i]['id']?>" class="btn btn-warning btn_voir_admin">
+                    Modifier
+                    </a></td>
+                <td class=""><a href="/controllers/AdminUserController.php?ref=<?= $i+1 ?>&deleteUser=<?= $users[$i]['id']?>" class="btn btn-danger btn_voir_admin">
+                    Supprimer
+                    </a></td>
+                </tr>
+
+            <?php endfor; ?>
+        </tbody>
+        </table>
+    </fieldset>
+    <fieldset>
+        <legend>Ajouter un utilisateurs</legend>
+        <div class="addUser_admin_form">
+            <form action="/controllers/AdminUserController.php" method="post">
+                <div class="form-group">
+                    <label for="new_admin_pseudo">Pseudo</label>
+                    <input name="pseudo" type="text" class="form-control" id="new_admin_pseudo">
+                </div>
+                
+                <div class="form-group">
+                    <label for="new_admin_mail">E-Mail</label>
+                    <input name="mail" type="email" class="form-control" id="new_admin_mail">
+                </div>
+                
+                <div class="form-group">
+                    <label for="new_admin_mail">Mot de Passe</label>
+                    <input name="password" type="password" class="form-control" id="new_admin_password">
+                </div>
+                
+
+                <button class="btn btn-primary">Ajouter</button>
+                
+
+            </form>
+        </div>
+    </fieldset>
+</div>

@@ -1,0 +1,5 @@
+<?php 
+
+
+$emmo           = new database();
+

@@ -1,0 +1,240 @@
+<h1 class="h1-sell">Modifier une annonce</h1>
+
+
+
+<div class="container-update">
+    <div class="my_form col-md-6">
+        <form enctype="multipart/form-data" action="/controllers/UpdateController.php?id=<?= $item['id']?>" method="post">
+            <input type="text" name="id" value="<?= $item['id']?>" class="hide">
+
+            <div>
+                <label for="update_titre">Titre de l'annonce</label>
+                <input name="titre" type="text" class="form-control input-form" placeholder="Titre de l'annonce" value="<?= $item['titre']?>" id="update_titre" required> 
+            </div>
+            
+            <fieldset>
+                <legend>Le bien</legend>
+                <div  class="col-md-5 col-sm-5 col-xs-5">
+                    <?php if($item['type'] === 'Appartement') : ?>
+                        <input type="radio" name="type" value="Appartement" id="update_appartement" checked required>
+                        <label for="update_appartement">Appartement</label><br>
+                        
+                        <input type="radio" name="type" value="Maison" id="update_maison" required>
+                        <label for="update_maison">Maison</label><br>
+                    <?php else :?>
+                        <input type="radio" name="type" value="Appartement" id="update_appartement" required>
+                        <label for="update_appartement">Appartement</label><br>
+                        
+                        <input type="radio" name="type" value="Maison" id="update_maison"  checked required>
+                        <label for="update_maison">Maison</label><br>
+                    <?php endif ; ?>
+                </div>
+                    
+                    
+                <div class="col-md-5 offset-md-2 col-sm-5 offset-sm-2 col-xs-5 offset-xs-2">
+                    <?php if($item['transac'] === 'Achat') : ?>
+                        <input type="radio" name="transac" value="Achat" id="update_achat" checked required>
+                        <label for="update_achat">Achat</label><br>
+                        
+                        <input type="radio" name="transac" value="Location" id="update_location" required>
+                        <label for="update_location">Location</label>
+                    <?php else :?>
+                        <input type="radio" name="transac" value="Achat" id="update_achat" checked required>
+                        <label for="update_achat">Achat</label><br>
+
+                        <input type="radio" name="transac" value="Location" id="update_location" checked required>
+                        <label for="update_location">Location</label>
+                    <?php endif ; ?>
+                </div>
+            </fieldset>
+            
+
+            <fieldset>
+                <legend>Localisation</legend>
+
+                <div class="col-md-5 col-sm-5 col-xs-5 div-loc">
+                    <label for="update_ville">Ville</label>
+                    <input name="ville" type="text" class="form-control input-form" placeholder="Paris" value="<?= $item['ville'] ?>" id="update_ville" required>
+                </div>
+
+                <div class="col-md-5 offset-md-2 col-sm-5 offset-sm-2 col-xs-5 offset-xs-2 div-loc">
+                    <label for="update_depart">Département</label>
+                    <select name="departement" class="custom-select input-select" id="update_depart" required>
+                        <option disabled value="">Departement</option>
+                        <?php foreach ($departements as $i => $j) :?>
+                            <?php if((int)$item['departement'] === $i) :?>
+                            <option selected value="<?= $i?>"><?= $j?> (<?= $i?>)</option>
+                            <?php else :?>
+                            <option value="<?= $i?>"><?= $j?> (<?= $i?>)</option>
+                            <?php endif ; ?>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <div class="div_region">
+                <label for="update_region">Région</label>
+                    <select name="region" class="custom-select input-select input-form" id="update_region" required>
+                        <option disabled value="" >Région</option>
+                        <?php foreach ($region as $i => $j) :?>
+                            <?php if((int)$item['region'] === $i) :?>
+                            <option selected value="<?= $i ?>"><?= $j?></option>
+                            <?php else :?>
+                            <option value="<?= $i ?>"><?= $j?></option>
+                            <?php endif ; ?>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+
+            </fieldset>
+
+            <fieldset>
+                <legend>Caractéristiques du bien</legend>
+
+                <div class="update_surface_int col-md-5 col-sm-5 col-xs-5">
+                    <label for="update_surface_int">Surface intérieure</label>
+                    <input name="surface_int" type="number" class="form-control input-form" id="update_surface_int" placeholder="90" value="<?= $item['surface_int']?>" min="9" max="500" required>
+                </div>
+                
+                <div class="update_surface_ext col-md-5 offset-md-2 col-sm-5 offset-sm-2 col-xs-5 offset-xs-2">
+                    <label for="update_surface_ext">Surface extérieure</label>
+                    <input name="surface_ext" type="number" class="form-control input-form" id="update_surface_ext" value="<?= $item['surface_ext']?>"  placeholder="600" min="0" max="10000" required>
+                </div>
+                
+                <div class="update_nbr_pieces col-md-5 col-sm-5 col-xs-5">
+                    <label for="update_nbr_pieces">Nombre de pièces</label>
+                    <input name="nbr_pieces" type="number" class="form-control input-form " id="update_nbr_pieces" value="<?= $item['nbr_pieces']?>" placeholder="3" min="1" max="15" required>
+                </div>
+
+                <div class="update_nbr_sdb col-md-5 offset-md-2 col-sm-5 offset-sm-2 col-xs-5 offset-xs-2">
+                    <label for="update_nbr_sdb">Nombre de salle de bains</label>
+                    <input name="nbr_sdb" type="number" class="form-control input-form" id="update_nbr_sdb" value="<?= $item['nbr_sdb']?>" placeholder="1" min="1" max="10" required>
+                </div>
+                
+                <div class="update_balcon div-radio col-md-5 col-sm-5 col-xs-5">
+                    <h4>Balcon</h4>
+                    <?php if($item['balcon'] === 'Oui') : ?>
+                        <input type="radio" name="balcon" value="oui" id="update_balcon_oui" checked required>
+                        <label for="update_balcon_oui">Oui</label><br>
+                    
+                        <input type="radio" name="balcon" value="non" id="update_balcon_non" required>
+                        <label for="update_balcon_non">Non</label>
+                    <?php else : ?>
+                        <input type="radio" name="balcon" value="oui" id="update_balcon_oui" required>
+                        <label for="update_balcon_oui">Oui</label><br>
+                    
+                        <input type="radio" name="balcon" value="non" id="update_balcon_non" checked required>
+                        <label for="update_balcon_non">Non</label>
+                    <?php endif ; ?>
+                </div>
+
+                <div class="update_terrasse div-radio col-md-5 offset-md-2 col-sm-5 offset-sm-2 col-xs-5 offset-xs-2">
+                    <h4>Terrasse</h4>
+                    <?php if($item['terrasse'] === 'Oui') : ?>
+                        <input type="radio" name="terrasse" value="oui" id="update_terrasse_oui" checked required>
+                        <label for="update_terrasse_oui">Oui</label><br>
+                   
+                        <input type="radio" name="terrasse" value="non" id="update_terrasse_non" required>
+                        <label for="update_terrasse_non">Non</label>
+                    <?php else : ?>
+                        <input type="radio" name="terrasse" value="oui" id="update_terrasse_oui" required>
+                        <label for="update_terrasse_oui">Oui</label><br>
+                    
+                        <input type="radio" name="terrasse" value="non" id="update_terrasse_non" checked required>
+                        <label for="update_terrasse_non">Non</label>
+                    <?php endif ; ?>
+                </div>
+
+
+                <div class="update_garage div-radio col-md-5 col-sm-5 col-xs-5">
+                    <h4>Terrasse</h4>
+                    <?php if($item['garage'] === 'Oui') : ?>
+                        <input type="radio" name="garage" value="oui" id="update_garage_oui" checked required>
+                        <label for="update_garage_oui">Oui</label><br>
+                   
+                        <input type="radio" name="garage" value="non" id="update_garage_non" required>
+                        <label for="update_garage_non">Non</label>
+                    <?php else : ?>
+                        <input type="radio" name="garage" value="oui" id="update_garage_oui" required>
+                        <label for="update_garage_oui">Oui</label><br>
+                 
+                        <input type="radio" name="garage" value="non" id="update_garage_non" checked required>
+                        <label for="update_garage_non">Non</label>
+                    <?php endif ;?>
+                </div>
+
+                <div class="update_cave div-radio col-md-5 offset-md-2 col-sm-5 offset-sm-2 col-xs-5 offset-xs-2">
+                    <h4>Cave</h4>
+                    <?php if($item['cave'] === 'Oui') : ?>
+                        <input type="radio" name="cave" value="Oui" id="update_cave_oui" checked required>
+                        <label for="update_cave_oui">Oui</label><br>
+                    
+                        <input type="radio" name="cave" value="Non" id="update_cave_non" required>
+                        <label for="update_cave_non">Non</label>
+                    <?php else : ?>
+                        <input type="radio" name="cave" value="Oui" id="update_cave_oui" required>
+                        <label for="update_cave_oui">Oui</label><br>
+                    
+                        <input type="radio" name="cave" value="Non" id="update_cave_non" checked required>
+                        <label for="update_cave_non">Non</label>
+                    <?php endif ; ?>
+
+                </div>
+
+                <div class="update_chauffage div-radio col-md-5 col-sm-5 col-xs-5">
+                    <h4>Chauffage</h4>
+                    <?php if($item['chauffage'] === 'Gaz') : ?>
+                        <input type="radio" name="chauffage" value="Gaz" id="update_chauffage_gaz" checked required>
+                        <label for="update_chauffage_gaz">Gaz</label><br>
+                    
+                        <input type="radio" name="chauffage" value="Électricité" id="update_chauffage_electricite" required>
+                        <label for="update_chauffage_electricite">Électricité</label>
+                    <?php else : ?>
+                        <div>
+                        <input type="radio" name="chauffage" value="Gaz" id="update_chauffage_gaz" required>
+                        <label for="update_chauffage_gaz">Gaz</label><br>
+                    
+                        <input type="radio" name="chauffage" value="Électricité" id="update_chauffage_electricite" checked required>
+                        <label for="update_chauffage_electricite">Électricité</label>
+                    <?php endif ;?>
+
+                </div>
+                <div class="update_annee_const div-radio col-md-5 offset-md-2 col-sm-5 offset-sm-2 col-xs-5 offset-xs-2">
+                    <label for="update_annee_const">Année de construction</label>
+                    <input name="annee_const" type="number" class="form-control input-form" value="<?= $item['annee_const'] ?>" id="update_annee_const" placeholder="1980" min="1700" max="2020">
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Photos</legend>
+
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="update_photo1" name="photo1" >
+                    <label class="custom-file-label" for="update_photo1"><?= $item['photo1']?></label>
+                </div>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="update_photo2" name="photo2">
+                    <label class="custom-file-label" for="update_photo2"><?= $item['photo2']?></label>
+                </div>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="update_photo3" name="photo3">
+                    <label class="custom-file-label" for="update_photo1"><?= $item['photo3']?></label>
+                </div>
+
+            </fieldset>
+
+            <fieldset class="prix">
+                <legend>Prix du bien ou montant du loyer</legend>
+                <input name="prix" type="number" class="form-control input-form" placeholder="100000" value="<?= $item['prix']?>" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Description du bien</legend>
+                <textarea class="form-control area-form" name="description" cols="30" rows="10" required><?= $item['description']?></textarea>
+            </fieldset>
+
+            <button class="btn-update btn-request btn btn-block btn-primary" type="submit"> Modifier l'annonce</button>
+        </form>
+
+    </div>
+</div>
+
+<script src="/js/AdminAddItem.js"></script>
